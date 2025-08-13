@@ -1,3 +1,4 @@
+# .github/workflows/pages.yml
 name: Deploy to GitHub Pages
 
 on:
@@ -13,6 +14,9 @@ permissions:
 concurrency:
   group: "pages"
   cancel-in-progress: true
+
+env:
+  BUILD_DIR: build  # CRA outputs to "build"
 
 jobs:
   build:
@@ -30,9 +34,15 @@ jobs:
       - name: Install deps
         run: npm ci
 
-      # 👉 If your build output folder is NOT 'dist', set BUILD_DIR accordingly
-      - name: Build
+      - name: Build (CRA)
+        # In CI, CRA turns warnings into errors; unset CI to avoid failing on warnings
         run: npm run build
+        env:
+          CI: ""
+
+      # Optional but recommended for SPAs so deep links work on Pages
+      - name: SPA fallback (copy index.html to 404.html)
+        run: cp "${{ env.BUILD_DIR }}/index.html" "${{ env.BUILD_DIR }}/404.html"
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -40,7 +50,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist  # change to ./build for CRA, or your actual output
+          path: ${{ env.BUILD_DIR }}
 
   deploy:
     needs: build
