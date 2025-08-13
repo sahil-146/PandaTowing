@@ -73,7 +73,6 @@ function Nav() {
       <nav className="nav-links">
         <a href="#services">Services</a>
         <a href="#reviews">Reviews</a>
-        <a href="#about">About</a>
         <a href="#contact">Contact</a>
         <a className="btn btn-primary call-btn" href="tel:+12046199540">
           Call (204) 619-9540
