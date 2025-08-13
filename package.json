@@ -2,7 +2,7 @@
   "name": "panda-towing",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/sahil-146/PandaTowing.git",
+  "homepage": "https://sahil-146.github.io/PandaTowing",
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.6.4",
