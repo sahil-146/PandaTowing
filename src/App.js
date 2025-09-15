@@ -392,6 +392,22 @@ export default function PandaTowingSite() {
           <h4>PANDA TOWING LTD</h4>
           <p className="muted">Professional towing services in Winnipeg, Manitoba</p>
           <p className="tags"><span>#winnipegtowing</span> <span>#pandatowing</span> <span>#batteryboostservice</span></p>
+
+            
+          <div className="dev-credit">
+      <p>
+        Made by <strong>Sahil Sharma</strong> •{" "}
+        <a href="https://github.com/Sahil-Sharma-603" target="_blank" rel="noopener noreferrer">
+          GitHub
+        </a>{" "}
+        •{" "}
+        <a href="https://www.linkedin.com/in/cs-sahil-sharma/" target="_blank" rel="noopener noreferrer">
+          LinkedIn
+        </a>{" "}
+        – Contact for more info
+      </p>
+    </div>
+        
           <div className="muted small">© {new Date().getFullYear()} Panda Towing LTD. All rights reserved.</div>
         </div>
       </footer>
@@ -860,6 +876,26 @@ export default function PandaTowingSite() {
           .cards, .fleet, .review-grid, .contact { grid-template-columns: 1fr; }
           .float-call { width: 54px; height: 54px; }
         }
+
+    .dev-credit {
+  margin-top: 16px;
+  font-size: 14px;
+  color: #c0b5ff; /* nice subtle purple */
+}
+
+.dev-credit a {
+  color: #c0b5ff;
+  text-decoration: underline;
+  transition: color .2s ease;
+}
+
+.dev-credit a:hover {
+  color: #ffffff;
+}
+
+
+
+        
       `}</style>
     </main>
   );
